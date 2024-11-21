@@ -49,16 +49,23 @@
         </li>
 
         <li>
-          <a href="<?php echo base_url('charts'); ?>">
-              <i class="fa fa-book"></i>
-              <span>Jadwal Kuliah</span>
+          <a href="<?php echo base_url('matakuliah/index'); ?>">
+              <i class="fa fa-archive"></i>
+              <span>Mata Kuliah</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="<?php echo base_url('jurusan/index'); ?>">
+              <i class="fa fa-university"></i>
+              <span>Jurusan</span>
           </a>
         </li>
 
         <li>
           <a href="<?php echo base_url('charts'); ?>">
-              <i class="fa fa-university"></i>
-              <span>Jurusan</span>
+              <i class="fa fa-book"></i>
+              <span>Jadwal Kuliah</span>
           </a>
         </li>
 

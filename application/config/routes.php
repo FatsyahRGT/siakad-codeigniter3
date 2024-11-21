@@ -29,6 +29,9 @@ $route['default_controller'] = 'Admin/dashboard';
 | $route['mahasiswa'] = 'MahasiswaController/index';
 */
 
+
+
+
 //Modul Mahasiswa
 $route['mahasiswa/index'] = 'MahasiswaController/index';
 $route['mahasiswa/detail/(:num)'] = 'MahasiswaController/detail/$1';
@@ -40,6 +43,12 @@ $route['dosen/index'] = 'DosenController/index';
 $route['dosen/detail/(:num)'] = 'DosenController/detail/$1';
 $route['dosen/edit/(:num)'] = 'DosenController/edit/$1';
 $route['dosen/delete/(:num)'] = 'DosenController/delete/$1';
+
+//Modul Jurusan
+$route['jurusan/index'] = 'JurusanController/index';
+$route['jurusan/detail/(:num)'] = 'JurusanController/detail/$1';
+$route['jurusan/edit/(:num)'] = 'JurusanController/edit/$1';
+$route['jurusan/delete/(:num)'] = 'JurusanController/delete/$1';
 
 
 

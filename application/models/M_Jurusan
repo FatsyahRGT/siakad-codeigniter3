@@ -1,0 +1,5 @@
+<?php
+
+class M_Jurusan extends CI_Model{
+    public function
+}

@@ -10,7 +10,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | mengakses `http://localhost/projek`, maka otomatis diarahkan ke 
 | `Admin/dashboard`.
 */
-$route['default_controller'] = 'Admin/dashboard';
+$route['default_controller'] = 'AuthController';
+// $route['authcontroller/login'] = 'AuthController/login';
+// $route['authcontroller/register'] = 'AuthController/register';
+// $route['authcontroller/logout'] = 'AuthController/logout';
+// $route['default_controller'] = 'Admin/dashboard';
+
 
 /*
 |--------------------------------------------------------------------------

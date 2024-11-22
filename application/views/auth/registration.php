@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SIAKAD | STIKOMCKI</title>
+    <title>Register | STIKOMCKI</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -16,20 +16,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition login-page">
-    <div class="login-box">
+<body class="hold-transition register-page">
+    <div class="register-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
                 <a href="#" class="h1"><b>STIKOM</b>CKI</a>
             </div>
-            <div class="mt-3">
-                <img src="<?= base_url('assets/img/stikom.jpeg') ?>" alt="Logo STIKOM" style="max-width: 100px; max-height: 100px; display: block; margin: 0 auto;">
-            </div>
             <div class="card-body">
-                <p class="login-box-msg">Capai Semua Prestasimu</p>
+                <p class="login-box-msg">Daftar untuk Memulai</p>
 
-                <!-- Form Login -->
-                <form action="<?= site_url('auth/login') ?>" method="post">
+                <!-- Form Register -->
+                <form action="<?= site_url('auth/register') ?>" method="post">
                     <?php if ($this->session->flashdata('error')): ?>
                         <div class="alert alert-danger">
                             <?= $this->session->flashdata('error') ?>
@@ -37,7 +34,16 @@
                     <?php endif; ?>
 
                     <div class="input-group mb-3">
-                        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+                        <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" class="form-control" placeholder="Email" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -46,7 +52,7 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -54,21 +60,28 @@
                         </div>
                     </div>
 
-                    <!-- Tombol Sign In di tengah -->
-                    <div class="row justify-content-center">
-                        <div class="col-6">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password_confirm" class="form-control" placeholder="Konfirmasi Password" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
                         </div>
                     </div>
                 </form>
 
-                <!-- Opsi Create Account -->
-                <p class="mt-3 mb-1 text-center">
-                    <a href="<?= site_url('auth/register') ?>">Create Account</a>
+                <p class="mb-1">
+                    <a href="<?= site_url('auth/login') ?>">Sudah punya akun? Login</a>
                 </p>
             </div>
         </div>
-    </div>
+    </div>  
 
     <!-- jQuery (CDN) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

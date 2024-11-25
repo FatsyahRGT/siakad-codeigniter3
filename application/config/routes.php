@@ -42,18 +42,22 @@ $route['mahasiswa/index'] = 'MahasiswaController/index';
 $route['mahasiswa/detail/(:num)'] = 'MahasiswaController/detail/$1';
 $route['mahasiswa/edit/(:num)'] = 'MahasiswaController/edit/$1';
 $route['mahasiswa/delete/(:num)'] = 'MahasiswaController/delete/$1';
+$route['mahasiswa/update'] = 'MahasiswaController/update';
 
 //Modul Dosen
 $route['dosen/index'] = 'DosenController/index';
 $route['dosen/detail/(:num)'] = 'DosenController/detail/$1';
 $route['dosen/edit/(:num)'] = 'DosenController/edit/$1';
 $route['dosen/delete/(:num)'] = 'DosenController/delete/$1';
+$route['dosen/update'] = 'DosenController/update';
+
 
 //Modul Jurusan
 $route['jurusan/index'] = 'JurusanController/index';
 $route['jurusan/detail/(:num)'] = 'JurusanController/detail/$1';
 $route['jurusan/edit/(:num)'] = 'JurusanController/edit/$1';
 $route['jurusan/delete/(:num)'] = 'JurusanController/delete/$1';
+$route['jurusan/update'] = 'JurusanController/update';
 
 
 

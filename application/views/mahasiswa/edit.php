@@ -1,104 +1,59 @@
 <div class="content-wrapper">
-    <section class="content-header">
-        <h1>Edit Data Mahasiswa</h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Edit Mahasiswa</li>
-        </ol>
-    </section>
-
     <section class="content">
-        <?php foreach ($mahasiswa as $mhs): ?>
-        <!-- Form menggunakan helper CodeIgniter -->
-        <?php echo form_open('MahasiswaController/update'); ?>
-        <!-- fungsi ('MahasiswaController/update') adalah untuk mengarahkan form ke controller -->
-                
-            <!-- Input ID (Hidden) -->
-            <input type="hidden" name="id" value="<?php echo $mhs->id; ?>">
+        <h4><strong>EDIT DATA MAHASISWA</strong></h4>
 
-            <!-- Nama Mahasiswa -->
-            <div class="form-group">
-                <label for="nama">Nama Mahasiswa</label>
-                <input 
-                    type="text" 
-                    name="nama" 
-                    id="nama" 
-                    class="form-control" 
-                    value="<?php echo $mhs->nama; ?>" 
-                    placeholder="Masukkan Nama Mahasiswa" 
-                    required>
-            </div>
+        <?php echo form_open_multipart('mahasiswa/update'); ?>
 
-            <!-- NIM -->
-            <div class="form-group">
-                <label for="nim">NIM</label>
-                <input 
-                    type="text" 
-                    name="nim" 
-                    id="nim" 
-                    class="form-control" 
-                    value="<?php echo $mhs->nim; ?>" 
-                    placeholder="Masukkan NIM" 
-                    required>
-            </div>
+        <input type="hidden" name="id" value="<?php echo $mahasiswa[0]->id; ?>">
 
-            <!-- Jurusan -->
-            <div class="form-group">
-                <label for="jurusan">Jurusan</label>
-                <input 
-                    type="text" 
-                    name="jurusan" 
-                    id="jurusan" 
-                    class="form-control" 
-                    value="<?php echo $mhs->jurusan; ?>" 
-                    placeholder="Masukkan Jurusan" 
-                    required>
+        <?php if ($this->session->flashdata('error')): ?>
+            <div class="alert alert-danger">
+                <?php echo $this->session->flashdata('error'); ?>
             </div>
+        <?php endif; ?>
 
-            <!-- Alamat -->
-            <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <textarea 
-                    name="alamat" 
-                    id="alamat" 
-                    class="form-control" 
-                    placeholder="Masukkan Alamat" 
-                    required><?php echo $mhs->alamat; ?></textarea>
-            </div>
+        <div class="form-group">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" class="form-control" name="nama" id="nama" value="<?php echo $mahasiswa[0]->nama; ?>" required>
+        </div>
 
-            <!-- Email -->
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input 
-                    type="email" 
-                    name="email" 
-                    id="email" 
-                    class="form-control" 
-                    value="<?php echo $mhs->email; ?>" 
-                    placeholder="Masukkan Email" 
-                    required>
-            </div>
+        <div class="form-group">
+            <label for="nim">NIM</label>
+            <input type="text" class="form-control" name="nim" id="nim" value="<?php echo $mahasiswa[0]->nim; ?>" required>
+        </div>
 
-            <!-- No Telepon -->
-            <div class="form-group">
-                <label for="no_telp">No Telepon</label>
-                <input 
-                    type="text" 
-                    name="no_telp" 
-                    id="no_telp" 
-                    class="form-control" 
-                    value="<?php echo $mhs->no_telp; ?>" 
-                    placeholder="Masukkan No Telepon" 
-                    required>
-            </div>
+        <div class="form-group">
+            <label for="jurusan">Jurusan</label>
+            <input type="text" class="form-control" name="jurusan" id="jurusan" value="<?php echo $mahasiswa[0]->jurusan; ?>" required>
+        </div>
 
-            <!-- Tombol -->
-            <div class="form-group">
-                <button type="reset" class="btn btn-danger">Reset</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
+        <div class="form-group">
+            <label for="alamat">Alamat</label>
+            <textarea class="form-control" name="alamat" id="alamat" required><?php echo $mahasiswa[0]->alamat; ?></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" id="email" value="<?php echo $mahasiswa[0]->email; ?>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="no_telp">No. Telepon</label>
+            <input type="text" class="form-control" name="no_telp" id="no_telp" value="<?php echo $mahasiswa[0]->no_telp; ?>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="foto">Foto</label>
+            <input type="file" class="form-control" name="foto" id="foto">
+            <?php if (!empty($mahasiswa[0]->foto)): ?>
+                <img src="<?php echo base_url('mahasiswa/tampilkan_foto/' . $mahasiswa[0]->foto); ?>" 
+                     alt="Foto Mahasiswa" 
+                     style="max-width: 200px; max-height: 200px; margin-top: 10px;">
+            <?php endif; ?>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
 
         <?php echo form_close(); ?>
-        <?php endforeach; ?>
-    </section>
+    </section>  
 </div>

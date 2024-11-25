@@ -115,6 +115,11 @@
               <input type="text" name="no_telp" id="no_telp" class="form-control" placeholder="Masukkan No Telpon" required>
             </div>
 
+            <div class="form-group">
+              <label for="no_telp">Upload Foto</label>
+              <input type="file" name="foto" id="foto" class="form-control" placeholder="Masukkan No Telpon" required>
+            </div>
+
             <!-- Modal Footer -->
             <div class="modal-footer">
               <button type="reset" class="btn btn-danger">Reset</button>

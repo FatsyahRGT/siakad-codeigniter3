@@ -28,39 +28,42 @@
             <div class="card-body">
                 <p class="login-box-msg">Capai Semua Prestasimu</p>
 
-                <!-- Form Login -->
-                <form action="<?= site_url('auth/login') ?>" method="post">
-                    <?php if ($this->session->flashdata('error')): ?>
-                        <div class="alert alert-danger">
-                            <?= $this->session->flashdata('error') ?>
-                        </div>
-                    <?php endif; ?>
+            <!-- Form Login -->
+            <form action="<?= site_url('login/login_aksi') ?>" method="post">
+                <?php if ($this->session->flashdata('error')): ?>
+                    <div class="alert alert-danger">
+                        <?= $this->session->flashdata('error') ?>
+                    </div>
+                <?php endif; ?>
 
-                    <div class="input-group mb-3">
-                        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
+                <!-- Token CSRF -->
+                <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>">
+
+                <div class="input-group mb-3">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="input-group mb-3">
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
+                <div class="input-group mb-3">
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Tombol Sign In di tengah -->
-                    <div class="row justify-content-center">
-                        <div class="col-6">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        </div>
+                <!-- Tombol Sign In di tengah -->
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        <button button type="submit" class="btn btn-primary btn-block">Sign In</button>
                     </div>
-                </form>
+                </div>
+            </form>
 
                 <!-- Opsi Create Account -->
                 <p class="mt-3 mb-1 text-center">

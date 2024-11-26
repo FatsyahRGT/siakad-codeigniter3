@@ -44,6 +44,7 @@ class LoginController extends CI_Controller {
                 $this->session->set_userdata('username', $user->username);
                 $this->session->set_userdata('email', $user->email);
                 $this->session->set_userdata('level', $user->level);
+                $this->session->set_userdata('password', $user->password);
 
                 // Redirect ke halaman dashboard atau halaman lainnya
                 redirect('dashboard');

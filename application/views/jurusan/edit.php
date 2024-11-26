@@ -13,7 +13,7 @@
         <?php echo form_open('JurusanController/update'); ?>
         
             <!-- Input ID (Hidden) -->
-            <input type="hidden" name="id" value="<?php echo $jsn->id; ?>">
+            <input type="hidden" name="id_jurusan" value="<?php echo $jsn->id_jurusan; ?>">
 
             <!-- Nama Dosen -->
             <div class="form-group">
@@ -42,9 +42,10 @@
             </div>
 
             <!-- Tombol -->
-            <div class="form-group">
+            <div class="form-group d-flex justify-content-between align-items-center">
                 <button type="reset" class="btn btn-danger">Reset</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="<?php echo base_url('jurusan/index'); ?>" class="btn btn-primary">Kembali</a>
+                <button type="submit" class="btn btn-success">Simpan</button>
             </div>
 
         <?php echo form_close(); ?>

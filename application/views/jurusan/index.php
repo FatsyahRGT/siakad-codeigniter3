@@ -36,21 +36,21 @@
           
           <!-- Aksi Detail -->
           <td>
-            <a href="<?php echo site_url('jurusan/detail/'.$jsn->id); ?>" class="btn btn-success btn-sm">
+            <a href="<?php echo site_url('jurusan/detail/'.$jsn->id_jurusan); ?>" class="btn btn-success btn-sm">
               <i class="fa fa-search-plus"></i>
             </a>
           </td>
 
           <!-- Aksi Edit -->
           <td>
-            <a href="<?php echo site_url('jurusan/edit/'.$jsn->id); ?>" class="btn btn-primary btn-sm">
+            <a href="<?php echo site_url('jurusan/edit/'.$jsn->id_jurusan); ?>" class="btn btn-primary btn-sm">
               <i class="fa fa-edit"></i>
             </a>
           </td>
 
           <!-- Aksi Hapus -->
           <td>
-            <a href="<?php echo site_url('JurusanController/hapus/'.$jsn->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus data ini?');">
+            <a href="<?php echo site_url('JurusanController/hapus/'.$jsn->id_jurusan); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus data ini?');">
               <i class="fa fa-trash"></i>
             </a>
           </td>

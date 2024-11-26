@@ -40,21 +40,21 @@
 
           <!-- Aksi Detail -->
           <td>
-            <a href="<?php echo site_url('mahasiswa/detail/'.$mhs->id); ?>" class="btn btn-success btn-sm">
+            <a href="<?php echo site_url('mahasiswa/detail/'.$mhs->id_mahasiswa); ?>" class="btn btn-success btn-sm">
               <i class="fa fa-search-plus"></i>
             </a>
           </td>
 
           <!-- Aksi Edit -->
           <td>
-            <a href="<?php echo site_url('mahasiswa/edit/'.$mhs->id); ?>" class="btn btn-primary btn-sm">
+            <a href="<?php echo site_url('mahasiswa/edit/'.$mhs->id_mahasiswa); ?>" class="btn btn-primary btn-sm">
               <i class="fa fa-edit"></i>
             </a>
           </td>
 
           <!-- Aksi Hapus -->
           <td>
-            <a href="<?php echo site_url('MahasiswaController/hapus/'.$mhs->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus data ini?');">
+            <a href="<?php echo site_url('MahasiswaController/hapus/'.$mhs->id_mahasiswa); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus data ini?');">
               <i class="fa fa-trash"></i>
             </a>
           </td>

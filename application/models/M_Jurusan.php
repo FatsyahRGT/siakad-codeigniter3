@@ -30,7 +30,7 @@ class M_Jurusan extends CI_Model{
 
     public function detail_data($id = NULL)
     {
-        $query = $this->db->get_where('tb_jurusan', array('id' => $id))->row(); 
+        $query = $this->db->get_where('tb_jurusan', array('id_jurusan' => $id))->row(); 
         return $query; 
     }
 }   

@@ -36,7 +36,7 @@
                 <td><?php echo $detail->jurusan?></td>
             </tr>
         </table>
-
+    
         <a href="<?php echo base_url('dosen/index'); ?>" class="btn btn-primary">Kembali</a>
     </section>
 </div>

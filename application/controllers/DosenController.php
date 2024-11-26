@@ -70,7 +70,7 @@ class DosenController extends CI_Controller {
 
     public function hapus($id)
     {
-        $where = array('id' => $id);
+        $where = array('id_dosen' => $id);
         $this->M_Dosen->hapus_data($where, 'tb_dosen');
 
         redirect('dosen/index');
@@ -78,7 +78,7 @@ class DosenController extends CI_Controller {
 
     public function edit($id)
     {
-        $where = array('id' => $id);
+        $where = array('id_dosen' => $id);
         $data['dosen'] = $this->M_Dosen->edit_data($where, 'tb_dosen')->result();
 
         $this->load->view('app/header');
@@ -89,7 +89,7 @@ class DosenController extends CI_Controller {
 
     public function update()
     {
-        $id = $this->input->post('id');
+        $id = $this->input->post('id_dosen');
         $data = array(
             'nama_dosen'    => $this->input->post('nama_dosen'),
             'nid'           => $this->input->post('nid'),
@@ -101,7 +101,7 @@ class DosenController extends CI_Controller {
             'jurusan'       => $this->input->post('jurusan'),
         );
 
-        $this->M_Dosen->update_data(array('id' => $id), 'tb_dosen', $data);
+        $this->M_Dosen->update_data(array('id_dosen' => $id), 'tb_dosen', $data);
         redirect('dosen/index');
     }
 }

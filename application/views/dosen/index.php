@@ -40,21 +40,21 @@
 
           <!-- Aksi Detail -->
           <td>
-            <a href="<?php echo site_url('dosen/detail/'.$dsn->id); ?>" class="btn btn-success btn-sm">
+            <a href="<?php echo site_url('dosen/detail/'.$dsn->id_dosen); ?>" class="btn btn-success btn-sm">
               <i class="fa fa-search-plus"></i>
             </a>
           </td>
 
           <!-- Aksi Edit -->
           <td>
-            <a href="<?php echo site_url('dosen/edit/'.$dsn->id); ?>" class="btn btn-primary btn-sm">
+            <a href="<?php echo site_url('dosen/edit/'.$dsn->id_dosen); ?>" class="btn btn-primary btn-sm">
               <i class="fa fa-edit"></i>
             </a>
           </td>
 
           <!-- Aksi Hapus -->
           <td>
-            <a href="<?php echo site_url('DosenController/hapus/'.$dsn->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus data ini?');">
+            <a href="<?php echo site_url('DosenController/hapus/'.$dsn->id_dosen); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus data ini?');">
               <i class="fa fa-trash"></i>
             </a>
           </td>

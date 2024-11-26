@@ -90,14 +90,14 @@ class MahasiswaController extends CI_Controller {
 
     public function hapus($id)
     {
-        $where = array('id' => $id);
+        $where = array('id_mahasiswa' => $id);
         $this->M_Mahasiswa->hapus_data($where, 'tb_mahasiswa');
         redirect('mahasiswa/index');
     }
 
     public function edit($id)
     {
-        $where = array('id' => $id);
+        $where = array('id_mahasiswa' => $id);
         $data['mahasiswa'] = $this->M_Mahasiswa->edit_data($where, 'tb_mahasiswa')->result();
         $this->load->view('app/header');
         $this->load->view('app/sidebar');
@@ -107,7 +107,7 @@ class MahasiswaController extends CI_Controller {
 
     public function update()
     {
-        $id = $this->input->post('id');
+        $id = $this->input->post('id_mahasiswa');
 
         $data = array(
             'nama'    => $this->input->post('nama'),
@@ -141,7 +141,7 @@ class MahasiswaController extends CI_Controller {
         }
 
         // Memperbarui data mahasiswa di database
-        $this->M_Mahasiswa->update_data(array('id' => $id), 'tb_mahasiswa', $data);
+        $this->M_Mahasiswa->update_data(array('id_mahasiswa' => $id), 'tb_mahasiswa', $data);
 
         // Redirect ke halaman daftar mahasiswa
         redirect('mahasiswa/index');

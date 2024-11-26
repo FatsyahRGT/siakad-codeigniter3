@@ -63,7 +63,7 @@ class JurusanController extends CI_Controller {
     public function hapus($id)
     {
 
-        $where = array('id' => $id);
+        $where = array('id_jurusan' => $id);
         $this->M_Jurusan->hapus_data($where, 'tb_jurusan');
 
         redirect('jurusan/index');
@@ -72,7 +72,7 @@ class JurusanController extends CI_Controller {
     public function edit($id)
     {
 
-        $where = array('id' => $id);
+        $where = array('id_jurusan' => $id);
         $data['jurusan'] = $this->M_Jurusan->edit_data($where, 'tb_jurusan')->result();
 
         $this->load->view('app/header');
@@ -84,14 +84,14 @@ class JurusanController extends CI_Controller {
     public function update()
     {
 
-        $id = $this->input->post('id');
+        $id = $this->input->post('id_jurusan');
 
         $data = array(
             'nama_jurusan'    => $this->input->post('nama_jurusan'),
             'kepala_jurusan'     => $this->input->post('kepala_jurusan'),
         );
 
-        $this->M_Mahasiswa->update_data(array('id' => $id), 'tb_jurusan', $data);
+        $this->M_Mahasiswa->update_data(array('id_jurusan' => $id), 'tb_jurusan', $data);
 
         redirect('jurusan/index');
     }

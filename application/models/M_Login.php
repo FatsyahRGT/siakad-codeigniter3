@@ -18,7 +18,7 @@ class M_Login extends CI_Model {
         } else {
             return null; // Jika tidak ditemukan, kembalikan null
         }
-    }
+    }   
 
     // Fungsi untuk mengambil data pengguna berdasarkan ID (untuk detail)
     public function detail_data($id)
@@ -29,7 +29,8 @@ class M_Login extends CI_Model {
 
     public function cek_login_by_email($email)
     {
-        // Mengambil data pengguna berdasarkan email
-        return $this->db->get_where('user', ['email' => $email])->row();
+        // Query berdasarkan email
+        $this->db->where('email', $email);
+        return $this->db->get('user')->row(); // Sesuaikan nama tabel: `user`
     }
 }

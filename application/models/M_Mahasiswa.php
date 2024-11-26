@@ -58,7 +58,7 @@ class M_Mahasiswa extends CI_Model {
     {
         // Mengambil data dari tabel 'tb_mahasiswa' berdasarkan ID yang diberikan
         // Menggunakan metode row() untuk hanya mengambil satu baris data
-        $query = $this->db->get_where('tb_mahasiswa', array('id' => $id))->row(); 
+        $query = $this->db->get_where('tb_mahasiswa', array('id_mahasiswa' => $id))->row(); 
         return $query; // Mengembalikan data mahasiswa yang ditemukan
     }
 }

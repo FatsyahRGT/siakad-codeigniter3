@@ -14,7 +14,7 @@
         <!-- fungsi ('DosenController/update') adalah untuk mengarahkan form ke controller -->
                 
             <!-- Input ID (Hidden) -->
-            <input type="hidden" name="id" value="<?php echo $dsn->id; ?>">
+            <input type="hidden" name="id_dosen" value="<?php echo $dsn->id_dosen; ?>">
 
             <!-- Nama Dosen -->
             <div class="form-group">
@@ -120,9 +120,10 @@
            
 
             <!-- Tombol -->
-            <div class="form-group">
+            <div class="form-group d-flex justify-content-between align-items-center">
                 <button type="reset" class="btn btn-danger">Reset</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="<?php echo base_url('dosen/index'); ?>" class="btn btn-primary">Kembali</a>
+                <button type="submit" class="btn btn-success">Simpan</button>
             </div>
 
         <?php echo form_close(); ?>

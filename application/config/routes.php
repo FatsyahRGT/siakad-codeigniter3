@@ -5,83 +5,99 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |--------------------------------------------------------------------------
 | Default Route
 |--------------------------------------------------------------------------
-| Route ini menentukan controller dan metode default yang akan dipanggil 
-| jika tidak ada segment URI yang diberikan. Dalam hal ini, jika kita 
-| mengakses `http://localhost/projek`, maka otomatis diarahkan ke 
-| `Admin/dashboard`.
+| Menentukan controller default yang akan dipanggil ketika aplikasi diakses
+| tanpa URI segment tertentu.
 */
-// Default controller ketika aplikasi pertama kali diakses
 $route['default_controller'] = 'LoginController';
-
-// Route untuk halaman login
-$route['login'] = 'LoginController/index';  // Menampilkan form login
-$route['login/login_aksi'] = 'LoginController/login_aksi'; // Proses login
-
-// Route untuk logout
-$route['logout'] = 'LoginController/logout';
-
-// Route untuk dashboard atau halaman lainnya setelah login sukses
-$route['dashboard'] = 'DashboardController/index';  // Contoh route ke dashboard setelah login
-
 
 /*
 |--------------------------------------------------------------------------
-| Route ke Mahasiswa
+| Route untuk Login dan Logout
 |--------------------------------------------------------------------------
-| Route ini digunakan untuk mengarahkan URL `mahasiswa/index` ke 
-| controller `MahasiswaController` dan metode `index`.
-| 
-| Contoh:
-| - URL: http://localhost/projek/mahasiswa/index
-|   -> Akan memanggil: MahasiswaController::index()
-| 
-| Catatan:
-| Jika ingin mempersingkat URL menjadi hanya `mahasiswa`, tambahkan route
-| berikut (opsional):
-| $route['mahasiswa'] = 'MahasiswaController/index';
+| Rute untuk proses login, logout, dan halaman login.
 */
+$route['login'] = 'LoginController/index';             // Menampilkan halaman login
+$route['login/login_aksi'] = 'LoginController/login_aksi'; // Proses login
+$route['logout'] = 'LoginController/logout';           // Proses logout
 
+/*
+|--------------------------------------------------------------------------
+| Route untuk Registrasi
+|--------------------------------------------------------------------------
+| Rute untuk menampilkan dan memproses registrasi pengguna baru.
+*/
+$route['register'] = 'RegisterController/index';       // Menampilkan form registrasi
+$route['register/register_aksi'] = 'RegisterController/register_aksi'; // Proses registrasi
 
+/*
+|--------------------------------------------------------------------------
+| Route untuk Dashboard
+|--------------------------------------------------------------------------
+| Rute untuk halaman dashboard setelah login berhasil.
+*/
+$route['Admin/dashboard'] = 'DashboardController/index'; // Halaman dashboard
+$route['Admin/login'] = 'LoginController/index';         // Halaman login admin
+$route['Admin/logout'] = 'LoginController/logout';       // Logout admin
+$route['dashboard'] = 'DashboardController/index';       // Alternatif akses dashboard
 
+/*
+|--------------------------------------------------------------------------
+| Route untuk Modul Mahasiswa
+|--------------------------------------------------------------------------
+| Rute untuk semua fungsi terkait mahasiswa, seperti menampilkan, mengedit, 
+| atau menghapus data mahasiswa.
+*/
+$route['mahasiswa/index'] = 'MahasiswaController/index';    // Halaman utama mahasiswa
+$route['mahasiswa/detail/(:num)'] = 'MahasiswaController/detail/$1'; // Detail mahasiswa berdasarkan ID
+$route['mahasiswa/edit/(:num)'] = 'MahasiswaController/edit/$1';     // Edit mahasiswa berdasarkan ID
+$route['mahasiswa/delete/(:num)'] = 'MahasiswaController/delete/$1'; // Hapus mahasiswa berdasarkan ID
+$route['mahasiswa/update'] = 'MahasiswaController/update';           // Update mahasiswa
 
-//Modul Mahasiswa
-$route['mahasiswa/index'] = 'MahasiswaController/index';
-$route['mahasiswa/detail/(:num)'] = 'MahasiswaController/detail/$1';
-$route['mahasiswa/edit/(:num)'] = 'MahasiswaController/edit/$1';
-$route['mahasiswa/delete/(:num)'] = 'MahasiswaController/delete/$1';
-$route['mahasiswa/update'] = 'MahasiswaController/update';
+/*
+|--------------------------------------------------------------------------
+| Route untuk Modul Dosen
+|--------------------------------------------------------------------------
+| Rute untuk semua fungsi terkait dosen, seperti menampilkan, mengedit, 
+| atau menghapus data dosen.
+*/
+$route['dosen/index'] = 'DosenController/index';          // Halaman utama dosen
+$route['dosen/detail/(:num)'] = 'DosenController/detail/$1'; // Detail dosen berdasarkan ID
+$route['dosen/edit/(:num)'] = 'DosenController/edit/$1';     // Edit dosen berdasarkan ID
+$route['dosen/delete/(:num)'] = 'DosenController/delete/$1'; // Hapus dosen berdasarkan ID
+$route['dosen/update'] = 'DosenController/update';           // Update dosen
 
-//Modul Dosen
-$route['dosen/index'] = 'DosenController/index';
-$route['dosen/detail/(:num)'] = 'DosenController/detail/$1';
-$route['dosen/edit/(:num)'] = 'DosenController/edit/$1';
-$route['dosen/delete/(:num)'] = 'DosenController/delete/$1';
-$route['dosen/update'] = 'DosenController/update';
+/*
+|--------------------------------------------------------------------------
+| Route untuk Modul Jurusan
+|--------------------------------------------------------------------------
+| Rute untuk semua fungsi terkait jurusan, seperti menampilkan, mengedit, 
+| atau menghapus data jurusan.
+*/
+$route['jurusan/index'] = 'JurusanController/index';          // Halaman utama jurusan
+$route['jurusan/detail/(:num)'] = 'JurusanController/detail/$1'; // Detail jurusan berdasarkan ID
+$route['jurusan/edit/(:num)'] = 'JurusanController/edit/$1';     // Edit jurusan berdasarkan ID
+$route['jurusan/delete/(:num)'] = 'JurusanController/delete/$1'; // Hapus jurusan berdasarkan ID
+$route['jurusan/update'] = 'JurusanController/update';           // Update jurusan
 
-
-//Modul Jurusan
-$route['jurusan/index'] = 'JurusanController/index';
-$route['jurusan/detail/(:num)'] = 'JurusanController/detail/$1';
-$route['jurusan/edit/(:num)'] = 'JurusanController/edit/$1';
-$route['jurusan/delete/(:num)'] = 'JurusanController/delete/$1';
-$route['jurusan/update'] = 'JurusanController/update';
-
-//Modul Matkul
-$route['matkul/index'] = 'MatkulController/index';
-$route['matkul/detail/(:num)'] = 'MatkulController/detail/$1';
-$route['matkul/edit/(:num)'] = 'MatkulController/edit/$1';
-$route['matkul/delete/(:num)'] = 'MatkulController/delete/$1';
-$route['matkul/update'] = 'MatkulController/update';
-
-
+/*
+|--------------------------------------------------------------------------
+| Route untuk Modul Mata Kuliah
+|--------------------------------------------------------------------------
+| Rute untuk semua fungsi terkait mata kuliah, seperti menampilkan, 
+| mengedit, atau menghapus data mata kuliah.
+*/
+$route['matkul/index'] = 'MatkulController/index';          // Halaman utama mata kuliah
+$route['matkul/detail/(:num)'] = 'MatkulController/detail/$1'; // Detail mata kuliah berdasarkan ID
+$route['matkul/edit/(:num)'] = 'MatkulController/edit/$1';     // Edit mata kuliah berdasarkan ID
+$route['matkul/delete/(:num)'] = 'MatkulController/delete/$1'; // Hapus mata kuliah berdasarkan ID
+$route['matkul/update'] = 'MatkulController/update';           // Update mata kuliah
 
 /*
 |--------------------------------------------------------------------------
 | Route untuk Halaman Tidak Ditemukan (404)
 |--------------------------------------------------------------------------
-| Route ini menentukan controller atau metode yang dipanggil jika halaman 
-| yang diminta tidak ditemukan. Kosongkan jika ingin menggunakan default 404 
-| bawaan dari CodeIgniter.
+| Mengatur controller yang akan dipanggil jika halaman tidak ditemukan.
+| Kosongkan untuk menggunakan 404 bawaan dari CodeIgniter.
 */
 $route['404_override'] = '';
 
@@ -89,12 +105,9 @@ $route['404_override'] = '';
 |--------------------------------------------------------------------------
 | Translate URI Dashes
 |--------------------------------------------------------------------------
-| Pengaturan ini memungkinkan dash ("-") pada URI secara otomatis diterjemahkan
-| menjadi underscore ("_") pada controller atau metode. Hal ini berguna 
-| jika nama metode menggunakan underscore.
-| 
-| Contoh:
-| - URL: http://localhost/projek/some-controller/my-method
-|   -> Akan memanggil: Some_controller::my_method()
+| Mengubah dash ("-") pada URI menjadi underscore ("_").
+| Contoh: 
+| URL: http://localhost/projek/some-controller/my-method
+| Akan memanggil: Some_controller::my_method()
 */
 $route['translate_uri_dashes'] = FALSE;

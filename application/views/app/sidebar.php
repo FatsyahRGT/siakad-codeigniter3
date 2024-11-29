@@ -49,7 +49,7 @@
         </li>
 
         <li>
-          <a href="<?php echo base_url('matakuliah/index'); ?>">
+          <a href="<?php echo base_url('matkul/index'); ?>">
               <i class="fa fa-archive"></i>
               <span>Mata Kuliah</span>
           </a>

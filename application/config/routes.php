@@ -66,6 +66,13 @@ $route['jurusan/edit/(:num)'] = 'JurusanController/edit/$1';
 $route['jurusan/delete/(:num)'] = 'JurusanController/delete/$1';
 $route['jurusan/update'] = 'JurusanController/update';
 
+//Modul Matkul
+$route['matkul/index'] = 'MatkulController/index';
+$route['matkul/detail/(:num)'] = 'MatkulController/detail/$1';
+$route['matkul/edit/(:num)'] = 'MatkulController/edit/$1';
+$route['matkul/delete/(:num)'] = 'MatkulController/delete/$1';
+$route['matkul/update'] = 'MatkulController/update';
+
 
 
 /*

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Nov 2024 pada 13.30
+-- Waktu pembuatan: 02 Des 2024 pada 11.23
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.1
 
@@ -72,7 +72,8 @@ CREATE TABLE `tb_jurusan` (
 
 INSERT INTO `tb_jurusan` (`id_jurusan`, `nama_jurusan`, `kepala_jurusan`, `created_at`, `update_at`) VALUES
 (1, 'Sistem Informatika', 'Dadang Iskandar Mulyana', '2024-11-21 10:05:50', '2024-11-21 10:05:50'),
-(2, 'Teknik Informatika', 'Ferri', '2024-11-21 10:06:04', '2024-11-21 10:06:04');
+(2, 'Teknik Informatika', 'Ferri', '2024-11-21 10:06:04', '2024-11-21 10:06:04'),
+(5, 'Teknik Pertanian', 'Sumarsih ', '2024-11-28 07:46:17', '2024-11-28 07:46:17');
 
 -- --------------------------------------------------------
 
@@ -111,6 +112,27 @@ INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `nama`, `nim`, `tgl_lahir`, `jurusan
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_matkul`
+--
+
+CREATE TABLE `tb_matkul` (
+  `id_matkul` int(11) NOT NULL,
+  `nama_matkul` varchar(100) NOT NULL,
+  `nama_dosen` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_matkul`
+--
+
+INSERT INTO `tb_matkul` (`id_matkul`, `nama_matkul`, `nama_dosen`, `created_at`, `update_at`) VALUES
+(2, 'Ilmu Pemrograman C++', 'Endang Amien', '2024-11-28 12:25:35', '2024-11-28 12:25:35');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -127,7 +149,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `level`) VALUES
-(1, 'admin', '25d55ad283aa400af464c76d713c07ad', 'admin@gmail.com', 'admin');
+(3, 'user', '$2y$10$NSFsgG6A/TaDctCdfTdZBOFJNITMs4y6.10ohllS4AZOxx63XpgPy', 'user@gmail.com', 'admin'),
+(4, 'user1', '$2y$10$l7peLGsEjl.4QDhKwG.am.wkoITuBaD.jn.fT21VRHdfiYu//SFuW', 'user1@gmail.com', 'admin'),
+(5, 'admin', '$2y$10$KKWGNvIm1dQjVcQgW97dje4U/1Q5tsaURYtXAYyu6pVU5Haqewqly', 'admin@gmail.com', 'admin'),
+(6, 'adi', '$2y$10$TRD0tZyIHklazqRwPyejMOmrkBvWUJuMUPrXgQ3H22mf2iZob01uu', 'adi@gmail.com', 'admin'),
+(7, 'rohmat', '$2y$10$St9kgsZqfk6UQ4zV6KjC5upm5oMMClC.zMiJfApkaqckn6pS/LUAu', 'rohmat@gmail.com', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -152,6 +178,12 @@ ALTER TABLE `tb_mahasiswa`
   ADD PRIMARY KEY (`id_mahasiswa`);
 
 --
+-- Indeks untuk tabel `tb_matkul`
+--
+ALTER TABLE `tb_matkul`
+  ADD PRIMARY KEY (`id_matkul`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -171,7 +203,7 @@ ALTER TABLE `tb_dosen`
 -- AUTO_INCREMENT untuk tabel `tb_jurusan`
 --
 ALTER TABLE `tb_jurusan`
-  MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_mahasiswa`
@@ -180,10 +212,16 @@ ALTER TABLE `tb_mahasiswa`
   MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_matkul`
+--
+ALTER TABLE `tb_matkul`
+  MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

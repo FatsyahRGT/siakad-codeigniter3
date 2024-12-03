@@ -91,6 +91,21 @@ $route['matkul/detail/(:num)'] = 'MatkulController/detail/$1'; // Detail mata ku
 $route['matkul/edit/(:num)'] = 'MatkulController/edit/$1';     // Edit mata kuliah berdasarkan ID
 $route['matkul/delete/(:num)'] = 'MatkulController/delete/$1'; // Hapus mata kuliah berdasarkan ID
 $route['matkul/update'] = 'MatkulController/update';           // Update mata kuliah
+/*
+|--------------------------------------------------------------------------
+| Route untuk Modul User (Edit Profile)
+|--------------------------------------------------------------------------
+| Rute untuk semua fungsi terkait mata CRUD Profile
+*/
+$route['user/index'] = 'UserController/index'; // Menampilkan daftar user
+$route['user/tambah'] = 'UserController/tambah'; // Form tambah user
+$route['user/tambah_aksi'] = 'UserController/tambah_aksi'; // Proses tambah user
+$route['user/edit/(:num)'] = 'UserController/edit/$1'; // Form edit user
+$route['user/update'] = 'UserController/update'; // Proses update user
+$route['user/detail/(:num)'] = 'UserController/detail/$1'; // Menampilkan detail user
+$route['user/hapus/(:num)'] = 'UserController/hapus/$1'; // Proses hapus user
+$route['user'] = 'UserController/index'; // Mengarahkan ke halaman index user jika URL 'user' dipanggil
+        
 
 /*
 |--------------------------------------------------------------------------

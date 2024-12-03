@@ -8,7 +8,7 @@
           <img src="<?php echo base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Fatsyah Regiyanto</p>
+          <p><?php echo $username; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -70,19 +70,33 @@
         </li>
 
         <li>
-          <a href="<?php echo base_url('charts'); ?>">
+          <a href="<?php echo base_url('user/index'); ?>">
               <i class="fa fa-lock"></i>
-              <span>Ganti Password</span>
+              <span>Edit Profil</span>
           </a>
         </li>
-        <li>
 
-          <a href="<?php echo base_url('charts'); ?>">
+        <li>
+          <a href="#" onclick="confirmLogout(event)">
               <i class="fa fa-sign-out"></i>
               <span>LogOut</span>
           </a>
         </li>
 
-      </ul>
+    <script type="text/javascript">
+      function confirmLogout(event) {
+        // Menampilkan konfirmasi kepada pengguna
+        var confirmation = confirm("Apakah Anda yakin ingin keluar?");
+        
+        // Jika pengguna mengklik OK, arahkan ke URL logout
+        if (confirmation) {
+            window.location.href = "<?php echo base_url('logout'); ?>";  // Mengarah ke route logout
+        } else {
+            // Mencegah aksi default (redirect) jika memilih Cancel
+            event.preventDefault();
+        }
+      }
+    </script>
+
     </section>
 </aside>

@@ -15,46 +15,43 @@ class LoginController extends CI_Controller {
     // Fungsi index adalah method yang dijalankan ketika mengakses URL 'Admin/login'
     public function index()
     {
+        // Cek apakah pengguna sudah login (jika sudah, redirect ke dashboard)
+        if ($this->session->userdata('email')) {
+            redirect('Admin/dashboard');  // Arahkan ke dashboard jika sudah login
+        }
+
         // Menampilkan halaman login
         $this->load->view('auth/login');
     }
 
     // Fungsi login_aksi adalah method untuk memproses login ketika user mengirimkan data login
     public function login_aksi()
-    {
-        // Mendapatkan data input email dan password dari form login
-        $email = $this->input->post('email');
-        $password = $this->input->post('password');
+{
+    $email = $this->input->post('email');
+    $password = $this->input->post('password');
 
-        // Validasi input: jika email atau password kosong, tampilkan pesan error dan redirect kembali ke halaman login
-        if (empty($email) || empty($password)) {
-            $this->session->set_flashdata('error', 'Email dan Password tidak boleh kosong.');
-            redirect('Admin/login');  // Redirect ke halaman login
-        }
+    if (empty($email) || empty($password)) {
+        $this->session->set_flashdata('error', 'Email dan Password tidak boleh kosong.');
+        redirect('Admin/login');
+    }
 
-        // Memanggil model untuk memeriksa login berdasarkan email
-        $user = $this->M_Login->cek_login_by_email($email);
+    $user = $this->M_Login->cek_login_by_email($email);
 
-        // Jika user ditemukan berdasarkan email
-        if ($user) {
-            // Verifikasi password dengan menggunakan password_verify
-            if (password_verify($password, $user->password)) {
-                // Jika password cocok, simpan data session email untuk menandakan user sudah login
-                $this->session->set_userdata('email', $user->email);
-
-                // Redirect ke halaman dashboard setelah login sukses
-                redirect('Admin/dashboard');
-            } else {
-                // Jika password salah, tampilkan pesan error dan redirect kembali ke halaman login
-                $this->session->set_flashdata('error', 'Password salah.');
-                redirect('Admin/login');
-            }
+    if ($user) {
+        if (password_verify($password, $user->password)) {
+            $this->session->set_userdata('email', $user->email);
+            $this->session->set_userdata('username', $user->username);
+            redirect('Admin/dashboard');
         } else {
-            // Jika email tidak ditemukan, tampilkan pesan error dan redirect kembali ke halaman login
-            $this->session->set_flashdata('error', 'Email tidak ditemukan.');
+            $this->session->set_flashdata('error', 'Password salah.');
             redirect('Admin/login');
         }
+    } else {
+        $this->session->set_flashdata('error', 'Email tidak ditemukan.');
+        redirect('Admin/login');
     }
+}
+
 
     // Fungsi logout untuk menghapus session dan mengarahkan kembali ke halaman login
     public function logout()

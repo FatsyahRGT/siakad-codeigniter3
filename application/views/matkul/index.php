@@ -1,9 +1,7 @@
 <div class="content-wrapper">
   <!-- Header -->
   <section class="content-header">
-    <h1>
-      Mata Kuliah
-    </h1>
+    <h1>Mata Kuliah</h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
       <li class="active">Mata Kuliah</li>
@@ -18,49 +16,51 @@
     </button>
 
     <!-- Table Index View Menampilkan data mata kuliah -->
-    <table class="table table-striped table-bordered">
-      <thead class="thead-dark">
-        <tr>
-          <th>NO</th>
-          <th>NAMA MATA KULIAH</th>
-          <th>NAMA DOSEN</th>
-          <th colspan="3">AKSI</th> <!-- Kolom Aksi untuk detail, edit, hapus -->
-        </tr>
-      </thead>
-      <tbody>
-        <?php $no = 1; foreach ($matkul as $mk): ?>
-        <tr>
-          <td><?php echo $no++ ?></td>
-          <td><?php echo $mk->nama_matkul ?></td>
-          <td><?php echo $mk->nama_dosen ?></td>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>NO</th>
+            <th>NAMA MATA KULIAH</th>
+            <th>NAMA DOSEN</th>
+            <th colspan="3">AKSI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php $no = 1; foreach ($matkul as $mk): ?>
+          <tr>
+            <td><?php echo $no++ ?></td>
+            <td><?php echo $mk->nama_matkul ?></td>
+            <td><?php echo $mk->nama_dosen ?></td>
 
-          <!-- Aksi Detail -->
-          <td>
-            <a href="<?php echo site_url('matkul/detail/'.$mk->id_matkul); ?>" class="btn btn-success btn-sm">
-              <i class="fa fa-search-plus"></i>
-            </a>
-          </td>
+            <!-- Aksi Detail -->
+            <td>
+              <a href="<?php echo site_url('matkul/detail/'.$mk->id_matkul); ?>" class="btn btn-success btn-sm">
+                <i class="fa fa-search-plus"></i>
+              </a>
+            </td>
 
-          <!-- Aksi Edit -->
-          <td>
-            <a href="<?php echo site_url('matkul/edit/'.$mk->id_matkul); ?>" class="btn btn-primary btn-sm">
-              <i class="fa fa-edit"></i>
-            </a>
-          </td>
+            <!-- Aksi Edit -->
+            <td>
+              <a href="<?php echo site_url('matkul/edit/'.$mk->id_matkul); ?>" class="btn btn-primary btn-sm">
+                <i class="fa fa-edit"></i>
+              </a>
+            </td>
 
-          <!-- Aksi Hapus -->
-          <td>
-            <a href="<?php echo site_url('MatkulController/hapus/'.$mk->id_matkul); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus data ini?');">
-              <i class="fa fa-trash"></i>
-            </a>
-          </td>
-        </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
+            <!-- Aksi Hapus -->
+            <td>
+              <a href="<?php echo site_url('MatkulController/hapus/'.$mk->id_matkul); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus data ini?');">
+                <i class="fa fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <!-- Modal Form Input Data Mahasiswa -->
+  <!-- Modal Form Input Data Mata Kuliah -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -83,7 +83,12 @@
 
             <div class="form-group">
               <label for="nama_dosen">Nama Dosen</label>
-              <input type="text" name="nama_dosen" id="nama_dosen" class="form-control" placeholder="Masukkan Nama Dosen" required>
+              <select name="nama_dosen" id="nama_dosen" class="form-control" required>
+                <option value="">Pilih Dosen</option>
+                <?php foreach ($dosen as $d): ?>
+                  <option value="<?php echo $d->id_dosen; ?>"><?php echo $d->nama_dosen; ?></option>
+                <?php endforeach; ?>
+              </select>
             </div>
 
             <!-- Modal Footer -->
@@ -97,8 +102,3 @@
     </div>
   </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker.min.css">
-

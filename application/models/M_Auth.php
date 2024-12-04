@@ -8,7 +8,7 @@ class M_Auth extends CI_Model {
     //     return $this->db->insert_id();
     // }
 
-    // public function get_user_by_username($username) {
+    // public function _by_username($username) {
     //     return $this->db->get_where('user', ['username' => $username])->row_array();
     // }
 }

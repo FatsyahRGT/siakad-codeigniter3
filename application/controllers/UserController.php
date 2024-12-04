@@ -68,7 +68,7 @@ class UserController extends CI_Controller {
     // Menampilkan detail user
     public function detail($id)
     {
-        $data['detail'] = $this->M_User->get_user_by_id($id);
+        $data['user'] = $this->M_User->tampil_data()->result();
         $this->load->view('app/header');
         $this->load->view('app/sidebar');
         $this->load->view('user/detail', $data);

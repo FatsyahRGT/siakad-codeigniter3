@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Des 2024 pada 11.23
+-- Waktu pembuatan: 06 Des 2024 pada 12.28
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.1
 
@@ -117,6 +117,7 @@ INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `nama`, `nim`, `tgl_lahir`, `jurusan
 
 CREATE TABLE `tb_matkul` (
   `id_matkul` int(11) NOT NULL,
+  `id_dosen` int(11) DEFAULT NULL,
   `nama_matkul` varchar(100) NOT NULL,
   `nama_dosen` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -127,8 +128,9 @@ CREATE TABLE `tb_matkul` (
 -- Dumping data untuk tabel `tb_matkul`
 --
 
-INSERT INTO `tb_matkul` (`id_matkul`, `nama_matkul`, `nama_dosen`, `created_at`, `update_at`) VALUES
-(2, 'Ilmu Pemrograman C++', 'Endang Amien', '2024-11-28 12:25:35', '2024-11-28 12:25:35');
+INSERT INTO `tb_matkul` (`id_matkul`, `id_dosen`, `nama_matkul`, `nama_dosen`, `created_at`, `update_at`) VALUES
+(2, 1, 'Ilmu Pemrograman C++', 'Endang Amien', '2024-12-05 10:31:43', '2024-12-05 10:31:43'),
+(3, 2, 'Komputer', '', '2024-12-05 11:11:48', '2024-12-05 11:11:48');
 
 -- --------------------------------------------------------
 
@@ -141,19 +143,20 @@ CREATE TABLE `user` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `level` enum('admin','user') NOT NULL
+  `level` enum('admin','user') NOT NULL,
+  `foto_user` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `level`) VALUES
-(3, 'user', '$2y$10$NSFsgG6A/TaDctCdfTdZBOFJNITMs4y6.10ohllS4AZOxx63XpgPy', 'user@gmail.com', 'admin'),
-(4, 'user1', '$2y$10$l7peLGsEjl.4QDhKwG.am.wkoITuBaD.jn.fT21VRHdfiYu//SFuW', 'user1@gmail.com', 'admin'),
-(5, 'admin', '$2y$10$KKWGNvIm1dQjVcQgW97dje4U/1Q5tsaURYtXAYyu6pVU5Haqewqly', 'admin@gmail.com', 'admin'),
-(6, 'adi', '$2y$10$TRD0tZyIHklazqRwPyejMOmrkBvWUJuMUPrXgQ3H22mf2iZob01uu', 'adi@gmail.com', 'admin'),
-(7, 'rohmat', '$2y$10$St9kgsZqfk6UQ4zV6KjC5upm5oMMClC.zMiJfApkaqckn6pS/LUAu', 'rohmat@gmail.com', 'admin');
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `level`, `foto_user`) VALUES
+(4, 'user1', '$2y$10$l7peLGsEjl.4QDhKwG.am.wkoITuBaD.jn.fT21VRHdfiYu//SFuW', 'user1@gmail.com', 'admin', ''),
+(5, 'admin', '$2y$10$KKWGNvIm1dQjVcQgW97dje4U/1Q5tsaURYtXAYyu6pVU5Haqewqly', 'admin@gmail.com', 'admin', ''),
+(6, 'adi', '$2y$10$TRD0tZyIHklazqRwPyejMOmrkBvWUJuMUPrXgQ3H22mf2iZob01uu', 'adi@gmail.com', 'admin', ''),
+(7, 'rohmat', '$2y$10$St9kgsZqfk6UQ4zV6KjC5upm5oMMClC.zMiJfApkaqckn6pS/LUAu', 'rohmat@gmail.com', 'admin', ''),
+(8, 'Fatsyah Regiyanto', '$2y$10$n0Na39gORZtlcJhujeYtEuAzoLRUGp2aWTyOhgBQNK512UTGqsnTy', 'fatsyah@gmail.com', 'admin', '');
 
 --
 -- Indexes for dumped tables
@@ -181,7 +184,8 @@ ALTER TABLE `tb_mahasiswa`
 -- Indeks untuk tabel `tb_matkul`
 --
 ALTER TABLE `tb_matkul`
-  ADD PRIMARY KEY (`id_matkul`);
+  ADD PRIMARY KEY (`id_matkul`),
+  ADD KEY `id_dosen` (`id_dosen`);
 
 --
 -- Indeks untuk tabel `user`
@@ -215,13 +219,23 @@ ALTER TABLE `tb_mahasiswa`
 -- AUTO_INCREMENT untuk tabel `tb_matkul`
 --
 ALTER TABLE `tb_matkul`
-  MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `tb_matkul`
+--
+ALTER TABLE `tb_matkul`
+  ADD CONSTRAINT `tb_matkul_ibfk_1` FOREIGN KEY (`id_dosen`) REFERENCES `tb_dosen` (`id_dosen`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

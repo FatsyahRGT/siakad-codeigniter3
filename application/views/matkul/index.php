@@ -31,7 +31,7 @@
           <tr>
             <td><?php echo $no++ ?></td>
             <td><?php echo $mk->nama_matkul ?></td>
-            <td><?php echo $mk->nama_dosen ?></td>
+            <td><?php echo $mk->nama_dosen ?></td> <!-- Menampilkan nama dosen -->
 
             <!-- Aksi Detail -->
             <td>
@@ -82,14 +82,15 @@
             </div>
 
             <div class="form-group">
-              <label for="nama_dosen">Nama Dosen</label>
-              <select name="nama_dosen" id="nama_dosen" class="form-control" required>
+              <label for="id_dosen">Nama Dosen</label>
+              <select name="id_dosen" id="id_dosen" class="form-control" required>
                 <option value="">Pilih Dosen</option>
-                <?php foreach ($dosen as $d): ?>
-                  <option value="<?php echo $d->id_dosen; ?>"><?php echo $d->nama_dosen; ?></option>
-                <?php endforeach; ?>
+                  <?php foreach ($dosen as $d): ?>
+                <option value="<?php echo $d->id_dosen; ?>"><?php echo $d->nama_dosen; ?></option>
+                  <?php endforeach; ?>
               </select>
             </div>
+
 
             <!-- Modal Footer -->
             <div class="modal-footer">

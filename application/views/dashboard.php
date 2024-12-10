@@ -44,7 +44,7 @@
           <div class="icon">
             <i class="ion ion-person"></i>
           </div>
-          <a href="<?= base_url('mahasiswa'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="<?php echo base_url('mahasiswa/index'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -53,13 +53,13 @@
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="small-box bg-yellow">
           <div class="inner">
-            <h3>44</h3>
-            <p>User Registrations</p>
+            <h3><?= $jumlah_user; ?></h3>
+            <p>Pengguna Terdaftar</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="<?= base_url('user'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->

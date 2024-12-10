@@ -34,4 +34,9 @@ class M_User extends CI_Model {
         $query = $this->db->get_where('user', array('id' => $id))->row(); 
         return $query; 
     }
+
+    public function count_user()
+    {
+        return $this->db->count_all('user'); // Menghitung jumlah seluruh data di tabel 'user'
+    }
 }

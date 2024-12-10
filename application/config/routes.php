@@ -91,6 +91,18 @@ $route['matkul/detail/(:num)'] = 'MatkulController/detail/$1'; // Detail mata ku
 $route['matkul/edit/(:num)'] = 'MatkulController/edit/$1';     // Edit mata kuliah berdasarkan ID
 $route['matkul/delete/(:num)'] = 'MatkulController/delete/$1'; // Hapus mata kuliah berdasarkan ID
 $route['matkul/update'] = 'MatkulController/update';           // Update mata kuliah
+
+/*
+|--------------------------------------------------------------------------
+| Route untuk Modul Jadwal Kuliah
+|--------------------------------------------------------------------------
+| Rute untuk semua fungsi terkait jadwal kuliah, seperti menampilkan, 
+| mengedit, atau menghapus data jadwal kuliah.
+*/
+
+$route['jadwal/index'] = 'JadwalController/index';
+
+
 /*
 |--------------------------------------------------------------------------
 | Route untuk Modul User (Edit Profile)

@@ -11,11 +11,13 @@ class DashboardController extends CI_Controller {
         // Ambil data username dari session supaya bisa dilempar ke view ketika login sebagai siapa
         $data['username'] = $this->session->userdata('username');
 
-        // Load model mahasiswa
+        // Load model mahasiswa dan user
         $this->load->model('M_Mahasiswa');
+        $this->load->model('M_User');
 
         // Ambil jumlah mahasiswa
         $data['jumlah_mahasiswa'] = $this->M_Mahasiswa->count_mahasiswa(); // Memanggil fungsi di model untuk mendapatkan jumlah mahasiswa
+        $data['jumlah_user'] = $this->M_User->count_user(); // Memanggil fungsi di model untuk mendapatkan jumlah user
 
         // Memuat tampilan header, sidebar, dan footer
         $this->load->view('app/header', $data);  

@@ -259,7 +259,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url() ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Fatsyah Regiyanto</span>
+              <span class="hidden-xs"><?php echo $this->session->userdata('username') ? $this->session->userdata('username') : 'Guest'; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -267,8 +267,8 @@
                 <img src="<?php echo base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Fatsyah Regiyanto - Web Developer
-                  <small>Member since Nov. 2023</small>
+                <?php echo $this->session->userdata('username') ? $this->session->userdata('username') : 'Guest'; ?>
+                  <!-- <small>Member since Nov. 2023</small> -->
                 </p>
               </li>
               <!-- Menu Body -->
@@ -292,11 +292,25 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="#" onclick="confirmLogout(event)" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
           </li>
+          <script type="text/javascript">
+      function confirmLogout(event) {
+        // Menampilkan konfirmasi kepada pengguna
+        var confirmation = confirm("Apakah Anda yakin ingin keluar?");
+        
+        // Jika pengguna mengklik OK, arahkan ke URL logout
+        if (confirmation) {
+            window.location.href = "<?php echo base_url('logout'); ?>";  // Mengarah ke route logout
+        } else {
+            // Mencegah aksi default (redirect) jika memilih Cancel
+            event.preventDefault();
+        }
+      }
+    </script>
           <!-- Control Sidebar Toggle Button -->
           <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>

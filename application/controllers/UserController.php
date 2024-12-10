@@ -5,18 +5,18 @@ class UserController extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('M_User');
-        $this->load->library('form_validation');
+        $this->load->model('M_User'); // Memuat model M_User
+        $this->load->library('form_validation'); // Memuat library validasi form
     }
 
     // Menampilkan daftar user
     public function index()
     {
-        $data['user'] = $this->M_User->tampil_data()->result();
-        $this->load->view('app/header');
-        $this->load->view('app/sidebar');
-        $this->load->view('user/index', $data);
-        $this->load->view('app/footer');
+        $data['user'] = $this->M_User->tampil_data()->result(); // Ambil data user dari model
+        $this->load->view('app/header'); // Muat tampilan header
+        $this->load->view('app/sidebar'); // Muat tampilan sidebar
+        $this->load->view('user/index', $data); // Muat tampilan index user
+        $this->load->view('app/footer'); // Muat tampilan footer
     }
 
     // Halaman untuk menambah user
@@ -68,28 +68,28 @@ class UserController extends CI_Controller {
     // Menampilkan detail user
     public function detail($id)
     {
-        $data['user'] = $this->M_User->tampil_data()->result();
-        $this->load->view('app/header');
-        $this->load->view('app/sidebar');
-        $this->load->view('user/detail', $data);
-        $this->load->view('app/footer');
+        $data['user'] = $this->M_User->tampil_data()->result(); // Ambil data user dari model
+        $this->load->view('app/header'); // Muat tampilan header
+        $this->load->view('app/sidebar'); // Muat tampilan sidebar
+        $this->load->view('user/detail', $data); // Muat tampilan detail user
+        $this->load->view('app/footer'); // Muat tampilan footer
     }
 
     // Menghapus user
     public function hapus($id)
     {
-        $this->M_User->hapus_data($id);
-        redirect('user/index');
+        $this->M_User->hapus_data($id); // Hapus data user
+        redirect('user/index'); // Redirect ke index user setelah dihapus
     }
 
     // Halaman untuk edit data user
     public function edit($id)
     {
-        $data['user'] = $this->M_User->get_user_by_id($id);
-        $this->load->view('app/header');
-        $this->load->view('app/sidebar');
-        $this->load->view('user/edit', $data);
-        $this->load->view('app/footer');
+        $data['user'] = $this->M_User->get_user_by_id($id); // Ambil data user berdasarkan id
+        $this->load->view('app/header'); // Muat tampilan header
+        $this->load->view('app/sidebar'); // Muat tampilan sidebar
+        $this->load->view('user/edit', $data); // Muat tampilan edit user
+        $this->load->view('app/footer'); // Muat tampilan footer
     }
 
     // Proses update data user
@@ -120,7 +120,7 @@ class UserController extends CI_Controller {
             }
         }
 
-        $this->M_User->update_user($id, $data);
-        redirect('user/index');
+        $this->M_User->update_user($id, $data); // Update data user
+        redirect('user/index'); // Redirect ke index user setelah diupdate
     }
 }

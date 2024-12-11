@@ -17,6 +17,8 @@
       <i class="fa fa-plus"></i> Tambah Jadwal
     </button>
 
+    <a class="btn btn-danger" href="<?php echo base_url('JadwalController/print')?>" ><i class="fa fa-print">Print Jadwal</i></a>
+
     <!-- Table Index View Menampilkan data jadwal kuliah -->
     <table class="table table-striped table-bordered">
       <thead class="thead-dark">

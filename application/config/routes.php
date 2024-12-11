@@ -101,6 +101,7 @@ $route['matkul/update'] = 'MatkulController/update';           // Update mata ku
 */
 
 $route['jadwal/index'] = 'JadwalController/index';
+$route['jadwal/print'] = 'JadwalController/print';
 
 
 /*

@@ -111,5 +111,11 @@ class JadwalController extends CI_Controller {
         redirect('jadwal/index');
     }
 
+    public function print()
+    {
+        $data['jadwal'] = $this->M_Jadwal->tampil_data("tb_jadwal_kuliah")->result();
+        $this->load->view('jadwal/print', $data);
+    }
+
     
 }

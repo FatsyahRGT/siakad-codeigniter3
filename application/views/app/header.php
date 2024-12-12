@@ -266,7 +266,7 @@
               <li class="user-header">
                 <img src="<?php echo base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
-                <p>
+                <p> 
                 <?php echo $this->session->userdata('username') ? $this->session->userdata('username') : 'Guest'; ?>
                   <!-- <small>Member since Nov. 2023</small> -->
                 </p>

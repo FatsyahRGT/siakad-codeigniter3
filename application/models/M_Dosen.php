@@ -33,4 +33,9 @@ class M_Dosen extends CI_Model {
         $query = $this->db->get_where('tb_dosen', array('id_dosen' => $id))->row(); 
         return $query; 
     }
+
+    public function count_dosen()
+    {
+        return $this->db->count_all('tb_dosen');
+    }
 }

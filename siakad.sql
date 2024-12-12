@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Des 2024 pada 12.28
+-- Waktu pembuatan: 12 Des 2024 pada 11.45
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.1
 
@@ -55,6 +55,36 @@ INSERT INTO `tb_dosen` (`id_dosen`, `nama_dosen`, `nid`, `gelar`, `email`, `no_t
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_jadwal_kuliah`
+--
+
+CREATE TABLE `tb_jadwal_kuliah` (
+  `id_jadwal` int(11) NOT NULL,
+  `id_matkul` int(11) DEFAULT NULL,
+  `id_dosen` int(11) DEFAULT NULL,
+  `id_jurusan` int(11) DEFAULT NULL,
+  `hari` varchar(20) DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `waktu_mulai` time DEFAULT NULL,
+  `waktu_selesai` time DEFAULT NULL,
+  `ruang` varchar(50) DEFAULT NULL,
+  `semester` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_jadwal_kuliah`
+--
+
+INSERT INTO `tb_jadwal_kuliah` (`id_jadwal`, `id_matkul`, `id_dosen`, `id_jurusan`, `hari`, `tanggal`, `waktu_mulai`, `waktu_selesai`, `ruang`, `semester`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 1, 'Kamis', '2024-09-11', '00:00:18', '18:24:36', '301', 3, '2024-12-10 10:51:21', '2024-12-10 11:24:41'),
+(2, 2, 2, 2, 'Jumat', '2024-12-10', '00:00:17', '20:00:00', '201', 3, '2024-12-10 11:01:10', '2024-12-10 11:24:54'),
+(3, 3, 3, 3, 'Sabtu', '2024-12-02', '14:08:00', '14:08:02', '104', 1, '2024-12-11 07:09:11', '2024-12-11 07:09:11');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_jurusan`
 --
 
@@ -73,7 +103,7 @@ CREATE TABLE `tb_jurusan` (
 INSERT INTO `tb_jurusan` (`id_jurusan`, `nama_jurusan`, `kepala_jurusan`, `created_at`, `update_at`) VALUES
 (1, 'Sistem Informatika', 'Dadang Iskandar Mulyana', '2024-11-21 10:05:50', '2024-11-21 10:05:50'),
 (2, 'Teknik Informatika', 'Ferri', '2024-11-21 10:06:04', '2024-11-21 10:06:04'),
-(5, 'Teknik Pertanian', 'Sumarsih ', '2024-11-28 07:46:17', '2024-11-28 07:46:17');
+(3, 'Teknik Pertanian', 'Sumarsih ', '2024-12-11 07:10:09', '2024-12-11 07:10:09');
 
 -- --------------------------------------------------------
 
@@ -106,8 +136,7 @@ INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `nama`, `nim`, `tgl_lahir`, `jurusan
 (9, 'Jindan Khilafah', 546897231, '2024-11-03', 'Tata Boga', 'Cilacap', 'jindan@gmail.com', '2825252525', '0', '2024-11-21 07:32:41', '2024-11-21 07:32:41'),
 (11, 'Naomi Nakata', 45678912, '2024-11-06', 'Digital Marketing', 'Jepang', 'naomi@gmail.com', '456123789789', '0', '2024-11-21 07:32:41', '2024-11-21 07:32:41'),
 (20, 'Regiyanto', 456321852, '2024-11-25', 'Teknik Informatika', 'Bina Karya', 'regiyanto@gmail.com', '0258963147', '36b21c5b649bbaa1d3f62f81209d8812.jpg', '2024-11-25 10:11:17', '2024-11-25 10:11:17'),
-(21, 'Abdul Haikal', 456321987, '2024-11-12', 'Ilmu Sosial', 'Pondok Kelapa', 'haikal@gmail.com', '456456456', 'WIN_20241117_13_53_54_Pro.jpg', '2024-11-25 08:18:10', '2024-11-25 08:18:10'),
-(23, 'Nisa Nusi', 456456456, '2024-10-27', 'Digital Marketing', 'fghfgh', 'pic@gmail.com', '00202020202', '2d903e2a0a4ba6310a12cf35dec86737.jpg', '2024-11-26 12:14:12', '2024-11-26 12:14:12');
+(21, 'Abdul Haikal', 456321987, '2024-11-12', 'Ilmu Sosial', 'Pondok Kelapa', 'haikal@gmail.com', '456456456', 'WIN_20241117_13_53_54_Pro.jpg', '2024-11-25 08:18:10', '2024-11-25 08:18:10');
 
 -- --------------------------------------------------------
 
@@ -129,8 +158,9 @@ CREATE TABLE `tb_matkul` (
 --
 
 INSERT INTO `tb_matkul` (`id_matkul`, `id_dosen`, `nama_matkul`, `nama_dosen`, `created_at`, `update_at`) VALUES
-(2, 1, 'Ilmu Pemrograman C++', 'Endang Amien', '2024-12-05 10:31:43', '2024-12-05 10:31:43'),
-(3, 2, 'Komputer', '', '2024-12-05 11:11:48', '2024-12-05 11:11:48');
+(1, 1, 'Ilmu Pemrograman C++', 'Endang Amien', '2024-12-10 10:59:17', '2024-12-10 10:59:17'),
+(2, 2, 'Komputer', '', '2024-12-10 10:59:21', '2024-12-10 10:59:21'),
+(3, 5, 'Arsitektur Komputer', '', '2024-12-10 10:59:57', '2024-12-10 10:59:57');
 
 -- --------------------------------------------------------
 
@@ -154,8 +184,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `level`, `foto_user`) VALUES
 (4, 'user1', '$2y$10$l7peLGsEjl.4QDhKwG.am.wkoITuBaD.jn.fT21VRHdfiYu//SFuW', 'user1@gmail.com', 'admin', ''),
 (5, 'admin', '$2y$10$KKWGNvIm1dQjVcQgW97dje4U/1Q5tsaURYtXAYyu6pVU5Haqewqly', 'admin@gmail.com', 'admin', ''),
-(6, 'adi', '$2y$10$TRD0tZyIHklazqRwPyejMOmrkBvWUJuMUPrXgQ3H22mf2iZob01uu', 'adi@gmail.com', 'admin', ''),
-(7, 'rohmat', '$2y$10$St9kgsZqfk6UQ4zV6KjC5upm5oMMClC.zMiJfApkaqckn6pS/LUAu', 'rohmat@gmail.com', 'admin', ''),
+(6, 'Adi', '$2y$10$TRD0tZyIHklazqRwPyejMOmrkBvWUJuMUPrXgQ3H22mf2iZob01uu', 'adi@gmail.com', 'admin', ''),
+(7, 'Rohmat Firdous', '$2y$10$St9kgsZqfk6UQ4zV6KjC5upm5oMMClC.zMiJfApkaqckn6pS/LUAu', 'rohmat@gmail.com', 'admin', ''),
 (8, 'Fatsyah Regiyanto', '$2y$10$n0Na39gORZtlcJhujeYtEuAzoLRUGp2aWTyOhgBQNK512UTGqsnTy', 'fatsyah@gmail.com', 'admin', '');
 
 --
@@ -167,6 +197,12 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`, `level`, `foto_user`)
 --
 ALTER TABLE `tb_dosen`
   ADD PRIMARY KEY (`id_dosen`);
+
+--
+-- Indeks untuk tabel `tb_jadwal_kuliah`
+--
+ALTER TABLE `tb_jadwal_kuliah`
+  ADD PRIMARY KEY (`id_jadwal`);
 
 --
 -- Indeks untuk tabel `tb_jurusan`
@@ -202,6 +238,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `tb_dosen`
   MODIFY `id_dosen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_jadwal_kuliah`
+--
+ALTER TABLE `tb_jadwal_kuliah`
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_jurusan`

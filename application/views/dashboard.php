@@ -23,11 +23,11 @@
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="small-box bg-green">
           <div class="inner">
-            <h3>53<sup style="font-size: 20px">%</sup></h3>
-            <p>Bounce Rate</p>
+            <h3><?= $jumlah_dosen; ?></sup></h3>
+            <p>Dosen</p>
           </div>
           <div class="icon">
-            <i class="ion ion-stats-bars"></i>
+            <i class="ion ion-person"></i>
           </div>
           <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -39,10 +39,10 @@
         <div class="small-box bg-blue">
           <div class="inner">
             <h3><?= $jumlah_mahasiswa; ?></h3>
-            <p>Jumlah Mahasiswa</p>
+            <p>Mahasiswa</p>
           </div>
           <div class="icon">
-            <i class="ion ion-person"></i>
+            <i class="ion ion-university"></i>
           </div>
           <a href="<?php echo base_url('mahasiswa/index'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -68,11 +68,11 @@
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="small-box bg-red">
           <div class="inner">
-            <h3>65</h3>
-            <p>Unique Visitors</p>
+            <h3><?= $jumlah_matkul; ?></h3>
+            <p>Mata Kuliah</p>
           </div>
           <div class="icon">
-            <i class="ion ion-pie-graph"></i>
+            <i class="fa fa-book"></i>
           </div>
           <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>

@@ -43,4 +43,9 @@ class M_Matkul extends CI_Model {
         $query = $this->db->get_where('tb_matkul', array('id_matkul' => $id))->row();
         return $query;
    }
+
+   public function count_matkul()
+   {
+     return $this->db->count_all('tb_matkul');
+   }
 }
